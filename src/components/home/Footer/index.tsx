@@ -1,6 +1,6 @@
 import { memo } from "react";
 import * as S from "./style";
-import { BsGithub, BsInstagram, BsEnvelope } from "react-icons/bs";
+import { BsGithub, BsInstagram, BsEnvelope, BsDiscord } from "react-icons/bs";
 import { IconType } from "react-icons";
 
 interface ContactLink {
@@ -24,6 +24,11 @@ const CONTACT_LINKS: readonly ContactLink[] = [
     icon: BsEnvelope,
     href: "mailto:jbj338033@gmail.com",
     label: "Email",
+  },
+  {
+    icon: BsDiscord,
+    href: "discord://~/users/jjjmo",
+    label: "Discord",
   },
 ] as const;
 
