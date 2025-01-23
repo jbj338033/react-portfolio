@@ -14,4 +14,10 @@ export const CERTIFICATES: Certificate[] = [
       "우수한 성적 취득",
     ].join("\n"),
   },
+  {
+    name: "정보처리기능사 필기",
+    organization: "한국산업인력공단",
+    date: "2025.01.23",
+    description: "IT 시스템 운영 및 개발 관련 기초 지식 검증",
+  },
 ];
