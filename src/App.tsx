@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import RootLayout from "./components/home/HomeLayout";
+import RootLayout from "./layouts/HomeLayout";
 import Home from "./pages/Home";
 import NarshaLayout from "./components/narsha/NarshaLayout";
 import NarshaDetail from "./components/narsha/NarshaDetail";
@@ -20,6 +20,9 @@ import MathLayout from "./components/math/MathLayout";
 import MathList from "./components/math/MathList";
 import MathDetail from "./components/math/MathDetail";
 import NewYearCounter from "./pages/NewYear";
+import ProjectDetail from "./pages/ProjectDetail";
+import Projects from "./pages/Projects";
+import ProjectLayout from "./layouts/ProjectLayout";
 
 function App() {
   const theme = useThemeStore((state) => state.theme);
@@ -30,6 +33,11 @@ function App() {
         <Routes>
           <Route path="/" element={<RootLayout />}>
             <Route index element={<Home />} />
+          </Route>
+
+          <Route path="/projects" element={<ProjectLayout />}>
+            <Route index element={<Projects />} />
+            <Route path=":projectId" element={<ProjectDetail />} />
           </Route>
 
           <Route path="/narsha" element={<NarshaLayout />}>
