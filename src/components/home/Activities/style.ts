@@ -59,18 +59,15 @@ export const TabItem = styled.button<{ isActive: boolean }>`
 
 export const Content = styled.div`
   min-height: 300px;
-`;
-
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: ${({ theme }) => theme.spacing.lg};
+  width: 100%;
 `;
 
 export const ActivityCard = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  justify-content: space-between;
+  height: fit-content;
   background: ${({ theme }) => theme.colors.background.default};
   border: 1px solid ${({ theme }) => theme.colors.border.default};
   border-radius: ${({ theme }) => theme.borderRadius.md};

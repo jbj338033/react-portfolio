@@ -1,9 +1,10 @@
-import { useState, memo, useCallback, useMemo } from "react";
+import React, { useState, memo, useCallback, useMemo, useEffect } from "react";
 import * as S from "./style";
 import { BsLink45Deg } from "react-icons/bs";
 import { ACTIVITIES } from "../../../constants/activity";
 import { ActivityDetail } from "../../../types/activity";
 import { IconType } from "react-icons";
+import Masonry from "react-responsive-masonry";
 
 interface TabItemProps {
   category: string;
@@ -118,6 +119,32 @@ const ActivityCard = memo(({ detail }: ActivityCardProps) => {
 
 ActivityCard.displayName = "ActivityCard";
 
+interface MasonryGridProps {
+  children: React.ReactNode[];
+}
+
+const MasonryGrid = memo(({ children }: MasonryGridProps) => {
+  const [columns, setColumns] = useState(2);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setColumns(window.innerWidth <= 768 ? 1 : 2);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <Masonry columnsCount={columns} gutter="16px">
+      {children}
+    </Masonry>
+  );
+});
+
+MasonryGrid.displayName = "MasonryGrid";
+
 const Activities = () => {
   const [activeCategory, setActiveCategory] = useState<string>(
     ACTIVITIES[0].category
@@ -150,19 +177,14 @@ const Activities = () => {
         {ACTIVITIES.map(
           (activity) =>
             activity.category === activeCategory && (
-              <S.Grid
-                key={activity.category}
-                role="tabpanel"
-                id={`tabpanel-${activity.category}`}
-                aria-labelledby={activity.category}
-              >
+              <MasonryGrid key={activity.category}>
                 {activity.details.map((detail, index) => (
                   <ActivityCard
                     key={`${activity.category}-${index}`}
                     detail={detail}
                   />
                 ))}
-              </S.Grid>
+              </MasonryGrid>
             )
         )}
       </S.Content>
