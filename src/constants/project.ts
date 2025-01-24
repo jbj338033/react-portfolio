@@ -8,6 +8,7 @@ import finder from "../assets/images/finder.png";
 
 export const PROJECTS: Project[] = [
   {
+    id: "solve",
     category: "코딩 테스트 플랫폼",
     startDate: "2024.10",
     featured: true,
@@ -43,6 +44,7 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: "openmusic",
     category: "음악 플랫폼",
     startDate: "2024.04",
     endDate: "2024.06",
@@ -80,6 +82,7 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: "stompilot",
     category: "Stomp 테스팅 툴",
     startDate: "2024.09",
     title: 'Stomp 프로토콜을 테스트할 수 있는 툴 "Stompilot"',
@@ -112,6 +115,7 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: "finder",
     category: "분실물 찾기 서비스",
     startDate: "2024.06",
     title: '분실물을 찾을 수 있는 서비스 "찾죠?ㅋ"',
