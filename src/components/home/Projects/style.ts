@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export const Container = styled.section`
   width: 100%;
@@ -13,8 +14,13 @@ export const Inner = styled.div`
 `;
 
 export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: ${({ theme }) => theme.spacing.xxl};
 `;
+
+export const HeaderContent = styled.div``;
 
 export const Title = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.xxxl};
@@ -28,6 +34,17 @@ export const Description = styled.p`
   color: ${({ theme }) => theme.colors.text.secondary};
   line-height: 1.6;
   margin: 0;
+`;
+
+export const ViewAll = styled(Link)`
+  color: ${({ theme }) => theme.colors.text.secondary};
+  text-decoration: none;
+  font-size: ${({ theme }) => theme.fontSize.md};
+  transition: ${({ theme }) => theme.transition.fast};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.text.primary};
+  }
 `;
 
 export const Content = styled.div`
@@ -78,6 +95,7 @@ export const ProjectImage = styled.img`
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  background: ${({ theme }) => theme.colors.background.paper};
 `;
 
 export const ProjectContent = styled.div`

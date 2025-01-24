@@ -375,10 +375,14 @@ const Projects = () => {
     <S.Container id="projects">
       <S.Inner>
         <S.Header>
-          <S.Title>Projects</S.Title>
-          <S.Description>
-            개인 프로젝트와 팀 프로젝트를 소개합니다
-          </S.Description>
+          <S.HeaderContent>
+            <S.Title>Projects</S.Title>
+            <S.Description>
+              개인 프로젝트와 팀 프로젝트를 소개합니다
+            </S.Description>
+          </S.HeaderContent>
+
+          <S.ViewAll to="/projects">전체 보기</S.ViewAll>
         </S.Header>
 
         <S.Content>
