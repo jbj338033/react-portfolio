@@ -1,4 +1,5 @@
 export interface Project {
+  id: string;
   category: string;
   startDate: string;
   endDate?: string;
