@@ -5,7 +5,6 @@ import * as S from "./style";
 import { useThemeStore } from "../../../stores/theme";
 import { debounce } from "lodash";
 
-// Types
 interface NavItem {
   readonly id: string;
   readonly label: string;
@@ -14,7 +13,6 @@ interface NavItem {
 type ScrollDirection = "up" | "down" | null;
 type Theme = "light" | "dark";
 
-// Constants
 const NAV_ITEMS = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
@@ -31,7 +29,6 @@ const SCROLL_THRESHOLD = 100;
 const INTERSECTION_THRESHOLD = [0, 0.2, 0.4, 0.6, 0.8, 1];
 const SCROLL_DEBOUNCE_TIME = 50;
 
-// Props interfaces
 interface ThemeToggleProps {
   theme: Theme;
   isScrolled: boolean;
@@ -51,7 +48,6 @@ interface MobileNavItemProps {
   onClick: (id: string) => void;
 }
 
-// Memoized Components
 const ThemeToggle = memo(({ theme, isScrolled, onClick }: ThemeToggleProps) => (
   <S.ThemeToggle
     isScrolled={isScrolled}
@@ -89,7 +85,7 @@ const MobileNavItem = memo(
       role="menuitem"
       tabIndex={0}
       aria-current={isActive ? "page" : undefined}
-      isScrolled={false} // Added to satisfy StyleProps
+      isScrolled={false}
     >
       {item.label}
     </S.MobileNavItem>
@@ -98,7 +94,7 @@ const MobileNavItem = memo(
 
 MobileNavItem.displayName = "MobileNavItem";
 
-const Header = () => {
+const HomeHeader = () => {
   const [scrollY, setScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState<string>("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -134,7 +130,6 @@ const Header = () => {
     []
   );
 
-  // Intersection Observer setup
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -158,7 +153,6 @@ const Header = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll event listener
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -167,7 +161,6 @@ const Header = () => {
     };
   }, [handleScroll]);
 
-  // Menu escape key handler
   useEffect(() => {
     if (!isMenuOpen) return;
 
@@ -275,4 +268,4 @@ const Header = () => {
   );
 };
 
-export default memo(Header);
+export default memo(HomeHeader);
