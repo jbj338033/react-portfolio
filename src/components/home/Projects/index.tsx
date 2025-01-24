@@ -9,7 +9,6 @@ import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import { Project } from "../../../types/project";
 import { PROJECTS } from "../../../constants/project";
 
-// Types
 interface TouchState {
   start: number;
   end: number;
@@ -52,12 +51,10 @@ interface ProjectUrlProps {
   };
 }
 
-// Constants
 const MIN_SWIPE_DISTANCE = 50;
 const DESCRIPTION_PREVIEW_LENGTH = 2;
 const SKILLS_PREVIEW_LENGTH = 4;
 
-// Memoized Components
 const Period = memo(({ startDate, endDate }: PeriodProps) => (
   <S.Period>
     <SlCalender aria-hidden="true" />
